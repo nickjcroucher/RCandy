@@ -53,7 +53,8 @@ RCandyVis(
   tree.tip.node.cex = 0.35,
   tree.tip.label.cex = 0.35,
   tree.node.cex = 0.6,
-  tree.edge.width = 1.251
+  tree.edge.width = 1.251,
+  legend.cex = 0.75
 )
 }
 \arguments{
@@ -152,6 +153,8 @@ RCandyVis(
 \item{tree.node.cex}{A number for the size of the nodes phylogenetic tree.}
 
 \item{tree.edge.width}{A number for the width of the tree edges}
+
+\item{legend.cex}{Scale factor for legend}
 }
 \value{
 None
