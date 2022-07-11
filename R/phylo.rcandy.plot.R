@@ -51,6 +51,7 @@
 #' @param tree.tip.node.cex A number for the terminal node or tip size in the phylogenetic tree.
 #' @param tree.node.cex A number for the size of the nodes phylogenetic tree.
 #' @param tree.tip.label.cex A number for the tip label size in the phylogenetic tree.
+#' @param tree.edge.width A number for the width of the tree edges
 #'
 #' @return None
 #'
@@ -145,7 +146,8 @@ RCandyVis <- function(tree.file.name,
                       color.tree.tips.by.column=NULL,
                       tree.tip.node.cex=0.35,
                       tree.tip.label.cex=0.35,
-                      tree.node.cex=0.60){
+                      tree.node.cex=0.60,
+                      tree.edge.width=1.251){
 
   # Check if the Boolean arguments are specified correctly
   if(!is.logical(show.gene.label)) stop("'show.gene.label' must be one of TRUE or FALSE")
@@ -765,10 +767,10 @@ RCandyVis <- function(tree.file.name,
         if( is.null(trait.for.ancestral.reconstr) ){
           # Do not include ancestral character reconstruction data
           plot.phylo(tree.to.plot,show.tip.label=TRUE,align.tip.label=align.tip.label,
-                     cex=tree.tip.label.cex,edge.width=1.251,yaxs="r")
+                     cex=tree.tip.label.cex,edge.width=tree.edge.width,yaxs="r")
         }else{
           plot.phylo(tree.to.plot,show.tip.label=TRUE,align.tip.label=align.tip.label,
-                     cex=tree.tip.label.cex,edge.width=1.251,yaxs="r")
+                     cex=tree.tip.label.cex,edge.width=tree.edge.width,yaxs="r")
           if( length(unique(pheno.to.reconstr))>1 ){
             # Include ancestral character reconstruction data
             ape::nodelabels(pie=fitARD.ALL$lik.anc,cex=tree.node.cex,piecol = cols)
@@ -780,10 +782,10 @@ RCandyVis <- function(tree.file.name,
         if( is.null(trait.for.ancestral.reconstr) ){
           # Do not include ancestral character reconstruction data
           plot.phylo(tree.to.plot,show.tip.label=show.tip.label,align.tip.label=FALSE,
-                     cex=tree.tip.label.cex,edge.width=1.251,yaxs="r")
+                     cex=tree.tip.label.cex,edge.width=tree.edge.width,yaxs="r")
         }else{
           plot.phylo(tree.to.plot,show.tip.label=show.tip.label,align.tip.label=FALSE,
-                     cex=tree.tip.label.cex,edge.width=1.251,yaxs="r")
+                     cex=tree.tip.label.cex,edge.width=tree.edge.width,yaxs="r")
           if( !is.null(taxon.metadata.file) & length(unique(pheno.to.reconstr))>1 ){
             if( length(unique(pheno.to.reconstr))>1 ){
               # Include ancestral character reconstruction data
@@ -801,10 +803,10 @@ RCandyVis <- function(tree.file.name,
         if( is.null(trait.for.ancestral.reconstr) ){
           # Do not include ancestral character reconstruction data
           plot.phylo(tree.to.plot,show.tip.label=TRUE,align.tip.label=align.tip.label,
-                     cex=tree.tip.label.cex,edge.width=1.251,yaxs="r")
+                     cex=tree.tip.label.cex,edge.width=tree.edge.width,yaxs="r")
         }else{
           plot.phylo(tree.to.plot,show.tip.label=TRUE,align.tip.label=align.tip.label,
-                     cex=tree.tip.label.cex,edge.width=1.251,yaxs="r")
+                     cex=tree.tip.label.cex,edge.width=tree.edge.width,yaxs="r")
           if( !is.null(taxon.metadata.file)  ){
             # Include ancestral character reconstruction data
             ape::nodelabels(pie=fitARD.ALL$lik.anc,cex=tree.node.cex,piecol = cols)
@@ -815,10 +817,10 @@ RCandyVis <- function(tree.file.name,
         if( is.null(trait.for.ancestral.reconstr) ){
           # Do not include ancestral character reconstruction data
           plot.phylo(tree.to.plot,show.tip.label=show.tip.label,align.tip.label=FALSE,
-                     cex=tree.tip.label.cex,edge.width=1.251,yaxs="r")
+                     cex=tree.tip.label.cex,edge.width=tree.edge.width,yaxs="r")
         }else{
           plot.phylo(tree.to.plot,show.tip.label=show.tip.label,align.tip.label=FALSE,
-                     cex=tree.tip.label.cex,edge.width=1.251,yaxs="r")
+                     cex=tree.tip.label.cex,edge.width=tree.edge.width,yaxs="r")
           if( !is.null(taxon.metadata.file) ){
             # Include ancestral character reconstruction data
             ape::nodelabels(pie=fitARD.ALL$lik.anc,cex=tree.node.cex,piecol = cols)
