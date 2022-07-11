@@ -52,6 +52,7 @@
 #' @param tree.node.cex A number for the size of the nodes phylogenetic tree.
 #' @param tree.tip.label.cex A number for the tip label size in the phylogenetic tree.
 #' @param tree.edge.width A number for the width of the tree edges
+#' @param legend.cex Scale factor for legend
 #'
 #' @return None
 #'
@@ -147,7 +148,8 @@ RCandyVis <- function(tree.file.name,
                       tree.tip.node.cex=0.35,
                       tree.tip.label.cex=0.35,
                       tree.node.cex=0.60,
-                      tree.edge.width=1.251){
+                      tree.edge.width=1.251,
+                      legend.cex=0.75){
 
   # Check if the Boolean arguments are specified correctly
   if(!is.logical(show.gene.label)) stop("'show.gene.label' must be one of TRUE or FALSE")
@@ -1186,8 +1188,17 @@ RCandyVis <- function(tree.file.name,
 
           if(show.fig.legend){
             strips.tmp<-strips.tmp[order(strips.tmp$trait),]
-            legend(0,loop.val*(10/length(taxon.metadata.columns.id)),fill=strips.tmp$col,legend=strips.tmp$trait,
-                   cex=0.75,title=count.val,bty="n",bg="transparent",horiz=TRUE,xjust=0,yjust=1)
+            legend(0,
+                    loop.val*(10/length(taxon.metadata.columns.id)),
+                    fill=strips.tmp$col,
+                    legend=strips.tmp$trait,
+                    cex=legend.cex,
+                    title=count.val,
+                    bty="n",
+                    bg="transparent",
+                    horiz=TRUE,
+                    xjust=0,
+                    yjust=1)
           }
           loop.val<-loop.val+1
           loop.val1<-loop.val1+1
@@ -1227,8 +1238,17 @@ RCandyVis <- function(tree.file.name,
 
           if(show.fig.legend){
             strips.tmp<-strips.tmp[order(strips.tmp$trait),]
-            legend(0,loop.val1*(10/length(taxon.metadata.columns.id)),fill=strips.tmp$col,legend=strips.tmp$trait,
-                   cex=0.75,title=count.val,bty="n",bg="transparent",horiz=TRUE,xjust=0,yjust=1)
+            legend(0,
+                    loop.val*(10/length(taxon.metadata.columns.id)),
+                    fill=strips.tmp$col,
+                    legend=strips.tmp$trait,
+                    cex=legend.cex,
+                    title=count.val,
+                    bty="n",
+                    bg="transparent",
+                    horiz=TRUE,
+                    xjust=0,
+                    yjust=1)
           }
         }
       }
