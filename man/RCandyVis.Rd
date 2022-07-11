@@ -52,7 +52,8 @@ RCandyVis(
   color.tree.tips.by.column = NULL,
   tree.tip.node.cex = 0.35,
   tree.tip.label.cex = 0.35,
-  tree.node.cex = 0.6
+  tree.node.cex = 0.6,
+  tree.edge.width = 1.251
 )
 }
 \arguments{
@@ -149,6 +150,8 @@ RCandyVis(
 \item{tree.tip.label.cex}{A number for the tip label size in the phylogenetic tree.}
 
 \item{tree.node.cex}{A number for the size of the nodes phylogenetic tree.}
+
+\item{tree.edge.width}{A number for the width of the tree edges}
 }
 \value{
 None
