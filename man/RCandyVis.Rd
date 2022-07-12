@@ -54,7 +54,12 @@ RCandyVis(
   tree.tip.label.cex = 0.35,
   tree.node.cex = 0.6,
   tree.edge.width = 1.251,
-  legend.cex = 0.75
+  legend.cex = 0.75,
+  legend.pt.cex = 0.75,
+  vertical.legend = FALSE,
+  use.simple.annotation = FALSE,
+  legend.y.spacing = 1,
+  legend.x.spacing = 1
 )
 }
 \arguments{
@@ -155,6 +160,16 @@ RCandyVis(
 \item{tree.edge.width}{A number for the width of the tree edges}
 
 \item{legend.cex}{Scale factor for legend}
+
+\item{legend.pt.cex}{Scale factor for legend points}
+
+\item{vertical.legend}{Scale factor for legend points}
+
+\item{use.simple.annotation}{Use black boxes for annotation}
+
+\item{legend.y.spacing}{Verical spacing of legend text}
+
+\item{legend.x.spacing}{Horizontal spacing of legend text}
 }
 \value{
 None

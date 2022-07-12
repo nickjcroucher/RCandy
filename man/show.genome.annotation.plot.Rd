@@ -11,7 +11,8 @@ show.genome.annotation.plot(
   genome.start.upstream = 0,
   genome.end.downstream = 0,
   show.gene.label = FALSE,
-  gene.feature.width = 1.5
+  gene.feature.width = 1.5,
+  simple.annotation = FALSE
 )
 }
 \arguments{
