@@ -41,7 +41,8 @@ show.genome.annotation.plot<-function(genome.name,
                                       genome.start.upstream=0,
                                       genome.end.downstream=0,
                                       show.gene.label=FALSE,
-                                      gene.feature.width=1.5){
+                                      gene.feature.width=1.5,
+                                      simple.annotation = FALSE){
 
   # Set default value for genome length (assume it's not explicitly specified)
   ref.genome.length<-NULL
@@ -89,17 +90,28 @@ show.genome.annotation.plot<-function(genome.name,
   plot(genome.start,genome.end,las=1,xlim=xlim.vals,ylim=c(0,5),xaxs="i",yaxs="r",
        bty="n",xaxt="n",yaxt="n",xlab="",ylab="",col=rgb(0,0,0,alpha=0))
 
-  # Plot the gene features on different lines for the forward and reverse strand
-  # Genes randomly assigned different colours for clarity
-  Arrows(x0=ifelse(reference.genome.obj$strand=="+",reference.genome.obj$start,reference.genome.obj$end),
-         y0=ifelse(reference.genome.obj$strand=="+",4.0,0.5),
-         x1=ifelse(reference.genome.obj$strand=="+",reference.genome.obj$end,reference.genome.obj$start),
-         y1=ifelse(reference.genome.obj$strand=="+",4.0,0.5),
-         arr.type="triangle",arr.width=0.25,arr.length=0.10,
-         col=sample(viridis::inferno(length(reference.genome.obj$start)),
-                    size=length(reference.genome.obj$start),replace=TRUE),
-         lty=1,lwd=gene.feature.width,arr.lwd=gene.feature.width)
-
+  if (simple.annotation) {
+      # Plot the gene features on different lines for the forward and reverse strand
+      # Genes all black
+      segments(x0=ifelse(reference.genome.obj$strand=="+",reference.genome.obj$start,reference.genome.obj$end),
+             y0=ifelse(reference.genome.obj$strand=="+",4.0,0.5),
+             x1=ifelse(reference.genome.obj$strand=="+",reference.genome.obj$end,reference.genome.obj$start),
+             y1=ifelse(reference.genome.obj$strand=="+",4.0,0.5),
+             lty=1,
+             lwd=gene.feature.width)
+  } else {
+      # Plot the gene features on different lines for the forward and reverse strand
+      # Genes randomly assigned different colours for clarity
+      Arrows(x0=ifelse(reference.genome.obj$strand=="+",reference.genome.obj$start,reference.genome.obj$end),
+             y0=ifelse(reference.genome.obj$strand=="+",4.0,0.5),
+             x1=ifelse(reference.genome.obj$strand=="+",reference.genome.obj$end,reference.genome.obj$start),
+             y1=ifelse(reference.genome.obj$strand=="+",4.0,0.5),
+             arr.type="triangle",arr.width=0.25,arr.length=0.10,
+             col=sample(viridis::inferno(length(reference.genome.obj$start)),
+                        size=length(reference.genome.obj$start),replace=TRUE),
+             lty=1,lwd=gene.feature.width,arr.lwd=gene.feature.width)
+  }
+  
   # Show a horizontal line (genome) between the forward and reverse strands
   segments(xlim.vals[1],2.25,xlim.vals[2],2.25,lwd=1.01,lty=4)
 
