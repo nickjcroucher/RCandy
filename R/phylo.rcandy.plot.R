@@ -157,7 +157,7 @@ RCandyVis <- function(tree.file.name,
                       legend.cex=0.75,
                       legend.pt.cex=0.75,
                       vertical.legend=FALSE,
-                      annotation.height=annotation.height,
+                      annotation.height=5,
                       use.simple.annotation=FALSE,
                       legend.y.spacing = 1,
                       legend.x.spacing = 1){
