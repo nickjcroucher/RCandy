@@ -157,6 +157,7 @@ RCandyVis <- function(tree.file.name,
                       legend.cex=0.75,
                       legend.pt.cex=0.75,
                       vertical.legend=FALSE,
+                      annot.panel.height=0.2,
                       annotation.height=5,
                       gene.feature.width=1,
                       use.simple.annotation=FALSE,
@@ -586,7 +587,7 @@ RCandyVis <- function(tree.file.name,
   strip.legend.size<-0.30
   metadata.panel.width<-0.15
   annot.label.height<-0.60
-  annot.panel.height<-0.20
+#  annot.panel.height<-0.20
   rec.events.panel<-1.00
   tree.panel.width<-2.50
   last.panel.width<-0.30
@@ -598,7 +599,7 @@ RCandyVis <- function(tree.file.name,
   if( isTRUE(show.genome.annot) & !is.null(gubbins.gff.file) ){
     # Specify correct dimensions for the genome annotation panels when recombination and genome annotations are available
     if(  isTRUE(show.gene.label) & isTRUE(show.genome.annot) ){
-      annot.panel.height<-0.40
+      annot.panel.height<-2*annot.panel.height
       annot.label.height<-0.60
     }else{
       if( isTRUE(show.metadata.label) ){
@@ -606,12 +607,12 @@ RCandyVis <- function(tree.file.name,
       }else{
         annot.label.height<-0.30
       }
-      annot.panel.height<-0.30
+      annot.panel.height<-1.5*annot.panel.height
     }
   }else{
     # Specify correct dimensions for the genome annotation panels when either recombination or genome annotations are not available
     if( isTRUE(show.gene.label) & isTRUE(show.genome.annot) ){
-      annot.panel.height<-0.40
+      annot.panel.height<-2*annot.panel.height
       annot.label.height<-0.60
     }else{
       if( isTRUE(show.metadata.label) ){
@@ -619,7 +620,7 @@ RCandyVis <- function(tree.file.name,
       }else{
         annot.label.height<-0.40
       }
-      annot.panel.height<-0.40
+      annot.panel.height<-2*annot.panel.height
     }
   }
 
@@ -668,7 +669,7 @@ RCandyVis <- function(tree.file.name,
       rec.heatmap.size<-0.125
     }
   }else{
-    rec.heatmap.size<-0.25
+    rec.heatmap.size<-0.01
   }
 
   # Specify correct panel for the recombination frequency/heatmap per genome
