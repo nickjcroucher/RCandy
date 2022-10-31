@@ -157,6 +157,7 @@ RCandyVis <- function(tree.file.name,
                       legend.cex=0.75,
                       legend.pt.cex=0.75,
                       vertical.legend=FALSE,
+                      annotation.height=annotation.height,
                       use.simple.annotation=FALSE,
                       legend.y.spacing = 1,
                       legend.x.spacing = 1){
@@ -993,11 +994,13 @@ RCandyVis <- function(tree.file.name,
             show.genome.annotation.plot(genome.name=ref.genome.name,
                                         genome.start=genome.start,genome.end=genome.end,
                                         show.gene.label=FALSE,genome.start.upstream=0,genome.end.downstream=0,gene.feature.width=1.05,
+                                        annotation.height=annotation.height,
                                         simple.annotation=use.simple.annotation)
           }else{
             show.genome.annotation.plot(genome.name=ref.genome.name,
                                         genome.start=genome.start,genome.end=genome.end,
                                         show.gene.label=FALSE,genome.start.upstream=0,genome.end.downstream=0,gene.feature.width=0.85,
+                                        annotation.height=annotation.height,
                                         simple.annotation=use.simple.annotation)
           }
         }else{
